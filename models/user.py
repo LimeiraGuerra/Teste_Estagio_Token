@@ -31,7 +31,7 @@ class UserModel(UserMixin, db.Model):
     # Funcao que faz uma requisicao para a api de envio de emais para a confirmacao do cadastro
     def send_confirmation_email(self):
         html = open("./templates/email_template.html", "r", encoding='utf-8')
-        link = request.url_root[:-1] + url_for('userconfirm', user_id=self.id)
+        link = self.confirmation_url()
         return post('https://api.mailgun.net/v3/{}/messages'.format(MAILGUN_DOMAIN),
                     auth=('api', MAILGUN_API_KEY),
                     data={'from': '{} <{}>'.format(FROM_TITLE, FROM_EMAIL),
@@ -41,6 +41,10 @@ class UserModel(UserMixin, db.Model):
                           'html': html.read().replace("{%name}", self.name).replace("{%link}", link)
                           }
                    )
+
+    # Funcao que gera a url de confirmacao de cadastro
+    def confirmation_url(self):
+        return request.url_root[:-1] + url_for('userconfirm', user_id=self.id)
 
     # Retorno do modelo em json
     def json(self):

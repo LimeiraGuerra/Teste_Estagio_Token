@@ -38,15 +38,15 @@ class UserRegister(Resource):
         try:
             user.save_user()
             r = user.send_confirmation_email()
-            created_user_id = None
+            verification_url = None
             if r.status_code != 200:
-                created_user_id = UserModel.find_by_login(user.login).id           
+                verification_url = user.confirmation_url()           
         except:
             user.delete_user()
             traceback.print_exc()
             return {'message': 'An internal server error has ocurred.'}, 500
         return {'message': 'User created successfully!',
-                'user_id': created_user_id}, 201
+                'verification_url': verification_url}, 201
 
 # Login do usuario
 class UserLogin(Resource):
