@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .main {
+            background-color: white;
+            padding: 2rem;
+            padding-top: 0;
+            text-align: center;
+        }
+
+        button:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+            cursor: pointer;
+        }
+
+        button {
+            color: #fff;
+            background-color: #007bff;
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: .3rem;
+            cursor: pointer;
+            font-weight: 400;
+            text-align: center;
+            user-select: none;
+            border: 1px solid transparent;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>Olá {%name}</h2>
+        <h3>Confirme seu cadastro clicando no botão abaixo:</h3>
+        <a href="{%link}"><button>Clique aqui</button></a>
+    </div>
+</body>
+
+</html>
