@@ -37,14 +37,16 @@ class UserRegister(Resource):
         user.activated = False
         try:
             user.save_user()
-            user.send_confirmation_email()
-            created_user = UserModel.find_by_login(user.login)
+            r = user.send_confirmation_email()
+            created_user_id = None
+            if r.status_code != 200:
+                created_user_id = UserModel.find_by_login(user.login).id           
         except:
             user.delete_user()
             traceback.print_exc()
             return {'message': 'An internal server error has ocurred.'}, 500
         return {'message': 'User created successfully!',
-                'user_id': created_user.id}, 201
+                'user_id': created_user_id}, 201
 
 # Login do usuario
 class UserLogin(Resource):

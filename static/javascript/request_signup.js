@@ -28,8 +28,12 @@ document.forms["signupForm"].addEventListener("submit", (event) => {
         document.querySelector('.load-page').classList.add('invisible');
         let cModal = $('#successModal');
         cModal.find(".modal-body .email-link").text("Por favor, confirme o email enviado para "+ form.email.value);
-        cModal.find(".modal-body .alert span")[0].innerHTML = `A versão grátis do Mailgun só envia o email para apenas um endereço. 
-        Clique <a href="verify/${data.user_id}">aqui</a> para validar como se fosse o link no email`;
+        if (data.user_id){
+            cModal.find(".modal-body .alert").removeClass("d-none");
+            cModal.find(".modal-body .alert span")[0].innerHTML = `Credenciais para a API de envio do email de confirmação não foram encontradas
+            ou são referentes a um domínio gratuito para testes. 
+            Clique <a href="verify/${data.user_id}">aqui</a> para validar como se fosse o link enviado no email`;
+        }
         cModal.on('hide.bs.modal', ()=>{window.location.href = "/entrar"});
         cModal.modal('toggle');
     });

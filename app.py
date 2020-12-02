@@ -6,6 +6,7 @@ from resources.user import UserRegister, UserLogin, UserLogout, UserConfirm
 from resources.event import Event
 from models.user import UserModel
 import secrets
+from config import HOST, PORT
 
 # Configuracoes necessarias para o Flask e o Banco de Dados
 app = Flask(__name__)
@@ -73,5 +74,5 @@ def events_page():
 if __name__ == '__main__':
     from sql_alchemy import database as db
     db.init_app(app)
-    app.run(port=5000, debug=True, use_reloader=True)
+    app.run(host=HOST, port=PORT, debug=True, use_reloader=True)
     

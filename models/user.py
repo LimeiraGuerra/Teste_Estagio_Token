@@ -4,12 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask import request, url_for
 from requests import post
-
-# Constantes para a api de envio de emails
-MAILGUN_DOMAIN = 'sandboxc94d5ef7fcf1472baeffac9e6999426e.mailgun.org'
-MAILGUN_API_KEY = '05920451eb1dcacca771e9855a684f0a-95f6ca46-4710ed1d'
-FROM_TITLE = '(NO-REPLY) Meus Eventos - Confirme seu cadastro'
-FROM_EMAIL = 'no-reply@meuseventos.com'
+from config import MAILGUN_DOMAIN, MAILGUN_API_KEY, FROM_TITLE, FROM_EMAIL
 
 class UserModel(UserMixin, db.Model):
     # Nome da tabela no banco
