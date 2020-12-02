@@ -1,0 +1,25 @@
+{% set title = 'Não Encontrado' %}
+{% include 'includes/header.html' %}
+<style>
+    body {
+        background: #dedede;
+    }
+    .page-wrap {
+        min-height: 100vh;
+    }
+    .material-icons{
+        vertical-align: text-bottom !important;
+    }
+</style>
+<main class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <span class="display-1 d-block">404</span>
+                <div class="mb-4 lead">A página que você está buscando não foi encontrada.</div>
+                <a href="/entrar" class="btn btn-lg btn-primary"><i class="material-icons">undo</i> Voltar</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'includes/footer.html' %}

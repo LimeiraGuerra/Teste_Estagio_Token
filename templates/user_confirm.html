@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../static/images/calendar-icon.png" />
+    <title>Cadastro Confirmado - Meus Eventos</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Obrigado, {{ user }}</h1>
+        <p class="lead">O email "{{ email }}" foi confirmado com sucesso!</p>
+        <hr class="my-4">
+        <p>Clique no botão para voltar e fazer seu login</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ link }}" role="button">Ir para Login</a>
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+{% set title = 'Cadastrar' %}
+{% include 'includes/header.html' %}
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<main class="container container-validation bg-light">
+    <div class="text-center">
+        <img class="img-fluid mt-2 mb-5" src="static/images/logo.png" alt="Logo Meus Eventos">
+    </div>
+    <div class="alert alert-danger d-none" role="alert"></div>
+    <form id="signupForm">
+        <div class="form-group">
+            <input required type="text" class="form-control" name="login" placeholder="Login">
+        </div>
+        <div class="form-group">
+            <input required type="text" class="form-control" name="name" placeholder="Nome">
+        </div>
+        <div class="form-group">
+            <input required type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input required type="password" class="form-control" name="password" placeholder="Senha">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block">Cadastrar</button>
+        </div>
+    </form>
+    <p class="text-center mt-3 mb-0">Já possui conta? 
+        <a href="/entrar">Faça o login</a>
+    </p>
+</main>
+<div class="modal" id="successModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5>Seu cadastro foi realizado com sucesso!</h5>
+                <p class="email-link"></p>
+                <div class="alert alert-warning d-none">
+                    <span></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-confirm" data-dismiss="modal">Voltar para Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'includes/footer.html' %}
+<script src="static/javascript/data_check.js"></script>
+<script src="static/javascript/request_signup.js"></script>

@@ -1,0 +1,87 @@
+{% set title = 'Eventos' %}
+{% include 'includes/header.html' %}
+{% include 'includes/navbar.html' %}
+<main class="container container-events pl-4 pr-4 pb-4 mb-5">
+    <div id="upcoming-events" class="card-deck"></div>
+    <div id="past-events" class="card-deck d-none"></div>
+</main>
+<!-- Modais -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="ModalFormEvents"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Novo Evento</h5>
+                <div id="modal-opts">
+                    <button id="edit-bt" type="button" class="btn bg-tranparent ml-auto p-0">
+                        <i  class="material-icons">edit</i>
+                    </button>
+                    <button id="delete-bt" type="button" class="btn bg-tranparent pb-0 pt-0 pr-0">
+                        <i  class="material-icons">delete</i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none" role="alert"></div>
+                <form id="eventForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="datetimepickerIn1">Início:</label>
+                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                <input required id="datetimepickerIn1" name="iniDateTime" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1">
+                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="datetimepickerIn2">Término:</label>
+                            <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                                <input required id="datetimepickerIn2" name="endDateTime" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2">
+                                <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventNameIn">Nome do Evento:</label>
+                        <input required name="eventName" type="text" class="form-control" id="eventNameIn">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescTa">Descrição:</label>
+                        <textarea required name="eventDesc" class="form-control" id="eventDescTa" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="submit" form="eventForm" class="btn btn-primary">Salvar Evento</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="confirmationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar</h5>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-confirm">Sim</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'includes/footer.html' %}
+<script src="static/javascript/navbar_events.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone-with-data-10-year-range.min.js"></script>
+<script src="static/javascript/tempusdominus-bootstrap-4.js"></script>
+<script src="static/javascript/datetimepicker_setup.js" type="text/javascript"></script>
+<script src="static/javascript/data_check.js"></script>
+<script src="static/javascript/user_data.js" type="text/javascript"></script>

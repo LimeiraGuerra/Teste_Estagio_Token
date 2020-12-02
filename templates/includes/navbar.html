@@ -1,0 +1,34 @@
+<header class="container mt-5 bg-light">
+    <nav class="navbar navbar-expand-lg row navbar-light" role="navigation">
+        <img class="navbar-brand" src="static/images/calendar-icon.png" height="45">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarMenuItens" aria-controls="navbarMenuItens" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenuItens">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="nbMenuLink-3" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">account_circle</i></a>
+                    <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="nbMenuLink-3">
+                        <a id="logoutBt" class="dropdown-item"><i class="material-icons">exit_to_app</i>Sair</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a id="upcomingBt" class="nav-link">
+                        <i class="material-icons">event_available</i>Próximos Eventos</a>
+                </li>
+                <li class="nav-item">
+                    <a id="pastBt" class="nav-link">
+                        <i class="material-icons">event_busy</i>Eventos Passados</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a id="addEvent" class="nav-link bg-primary rounded" data-toggle="modal" data-target="#formModal">
+                    <i class="material-icons">book_online</i>Novo Evento</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
